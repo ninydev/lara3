@@ -15,8 +15,21 @@ class ControllerCar extends Controller
     public function index()
     {
         $cars = Car::All(); // Взять все из базы
+        $head["title"] = "My Cars";
+        $head["autor"] = "Oleksandr Nykytin";
+
+        $header["pagetitle"] = "All My Cars";
+
+
         // dd($cars);
-        return view('cars.all', ['cars' => $cars]); // Отправить во вьюшку
+        return view('cars.all', 
+            [   
+                'cars' => $cars,
+                'head' => $head,
+                'header' => $header
+            ]
+            ); // Отправить во вьюшку
+        
     }
 
     /**
@@ -48,7 +61,8 @@ class ControllerCar extends Controller
      */
     public function show($id)
     {
-        //
+        $car = Car::find($id);
+        return view('cars.show',  ['car' => $car]);
     }
 
     /**

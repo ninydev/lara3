@@ -16,6 +16,10 @@ Route::get('/', function () {
 });
 
 Route::get('cars','ControllerCar@index' )->name("cars");
+Route::get('cars/{id}','ControllerCar@show' )->name("car");
+//Route::resource('cars', 'ControllerCar');
+// https://laravel.com/docs/5.7/controllers#resource-controllers
+
 
 Route::Auth();
 

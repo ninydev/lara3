@@ -15,11 +15,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('beds','ControllerBed@index' )->name("beds");
+Route::get('beds/{id}','ControllerBed@show' );
+
 Route::get('cars','ControllerCar@index' )->name("cars");
-Route::get('cars/{id}','ControllerCar@show' )->name("car");
+//Route::get('cars/{id}','ControllerCar@show' )->name("car");
+Route::get('cars/{category}/{slug}','ControllerCar@showAll' )->name("carbyslag");
 //Route::resource('cars', 'ControllerCar');
 // https://laravel.com/docs/5.7/controllers#resource-controllers
+Route::get('vendors','ControllerVendor@index' )->name("vendors");
+Route::get('vendors/{id}','ControllerVendor@show' )->name("vendor");
 
+Route::any('posts', 'PostController@index')->name("posts");
+Route::post('posts1', 'PostController@index')->name("postsPost");
+Route::get('posts/{category}/', 'PostController@viewByCat')->name("posts.cat");
+Route::get('post/{category}/{slug}', 'PostController@viewOne')->name("post.one");
 
 Route::Auth();
 

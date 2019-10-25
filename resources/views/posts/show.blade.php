@@ -11,16 +11,13 @@
                 <div class="card-content">
                     <div class="card-img">
 
-                         <img src="{{ Voyager::image( $car->image , 'https://bi.ua/uploaded-images/products/523247_1.jpg') }}">
+                         <img src="{{ Voyager::image( $post->image)}}">
 
                     </div>
                     <div class="card-desc">
-                        <h3>{{ $car->name }}</h3>
-                        <p>{{ $car->des }}</p>
+                        <h3>{{ $post->title }}</h3>
+                        <p>{!! $post->body !!}</p>
 
-                        <div> Производитель: 
-                            {{ $car->vendor->Name }}
-                        </div>
                     </div>
                 </div>
             </div>

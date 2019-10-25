@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Car; // Имя модели, с которой я буду работать
+use App\Bed; // Имя модели, с которой я буду работать
 
-class ControllerCar extends Controller
+class ControllerBed extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,14 +14,16 @@ class ControllerCar extends Controller
      */
     public function index()
     {
-        $cars = Car::All(); // Взять все из базы
+        //$cars = Bed::All(); // Взять все из базы
+        $cars = Bed::where('length', '>', 450)->get();
+
         $head["title"] = "My Cars";
         $head["autor"] = "Oleksandr Nykytin";
 
         $header["pagetitle"] = "All My Cars";
 
 
-        // dd($cars);
+        //dd($cars);
         return view('cars.all', 
             [   
                 'cars' => $cars,
@@ -61,14 +63,8 @@ class ControllerCar extends Controller
      */
     public function show($id)
     {
-        $car = Car::find($id);
-        return view('cars.show',  ['car' => $car]);
-    }
-
-        public function showAll($category, $slug)
-    {
-        $car = Car::find(1);
-        return view('cars.show',  ['car' => $car]);
+        // $car = Bed::find($id);
+        // return view('cars.show',  ['car' => $car]);
     }
 
     /**

@@ -3,27 +3,25 @@
 
 @section('content')
 
+
+
 <section class="details-card">
     <div class="container">
         <div class="row">
 
-	            <div class="col-md-12">
+	@foreach ($vendors as $vendor)
+	            <div class="col-md-4">
                 <div class="card-content">
                     <div class="card-img">
-
-                         <img src="{{ Voyager::image( $car->image , 'https://bi.ua/uploaded-images/products/523247_1.jpg') }}">
-
+                        <span><h4> {{ $loop->iteration }}  {{ $vendor->Id }}</h4></span>
                     </div>
                     <div class="card-desc">
-                        <h3>{{ $car->name }}</h3>
-                        <p>{{ $car->des }}</p>
-
-                        <div> Производитель: 
-                            {{ $car->vendor->Name }}
-                        </div>
+                        <h3>{{ $vendor->Name }}</h3>
+                        <p>{{ $vendor->Site }}</p>
                     </div>
                 </div>
             </div>
+	@endforeach
 
 	    </div>
     </div>

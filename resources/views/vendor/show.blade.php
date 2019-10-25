@@ -11,16 +11,20 @@
                 <div class="card-content">
                     <div class="card-img">
 
-                         <img src="{{ Voyager::image( $car->image , 'https://bi.ua/uploaded-images/products/523247_1.jpg') }}">
-
                     </div>
-                    <div class="card-desc">
-                        <h3>{{ $car->name }}</h3>
-                        <p>{{ $car->des }}</p>
 
-                        <div> Производитель: 
-                            {{ $car->vendor->Name }}
-                        </div>
+                    <div class="card-desc">
+                        <h3>{{ $vendor->Name }}</h3>
+                        <p>{{ $vendor->Site }}</p>
+
+
+
+                        <ul> 
+                                @foreach ($vendor->car as $c)
+                                    <li>{{ $c->name }}</li>
+                                @endforeach
+                        </ul>
+
                     </div>
                 </div>
             </div>

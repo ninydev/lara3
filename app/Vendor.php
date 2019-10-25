@@ -11,8 +11,9 @@ class Vendor extends Model
 	use Resizable;
     //
 
-      public function car()
-  {
-    return $this->belongsTo('App\Car', 'vendor_id', 'id');
-  }
+    public function car(){
+    	return $this->hasMany('App\Car');
+    }
+
+
 }

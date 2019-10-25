@@ -13,6 +13,6 @@ class Car extends Model
 
   public function vendor()
   {
-    return $this->hasOne('App\Vendor', 'id', 'vendor_id');
+    return $this->belongsTo('App\Vendor');
   }
 }

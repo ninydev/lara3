@@ -12,13 +12,18 @@
                 <div class="card-content">
                     <div class="card-img">
 
-                         <img src="{{ Voyager::image( $car->image , 'https://bi.ua/uploaded-images/products/523247_1.jpg') }}">
+                         <img src="{{ Voyager::image( $car->image , 'https://bi.ua/uploaded-images/products/523247_1.jpg') or 1}}">
                         <span><h4> {{ $loop->iteration }}  {{ $car->id }}</h4></span>
                     </div>
                     <div class="card-desc">
-                        <h3>{{ $car->name }}</h3>
-                        <p>{{ $car->des }}</p>
-                        <a href="{{route('car', ['id' => $car->id]) }}" class="btn-card">More</a>   
+                        <h3>{{ $car->name or 1}}</h3>
+                        <p>$car->des or 1}}</p>
+                        <p>$car->vendor->name or 1}}</p>
+                        
+                         <a href="{{route('carbyslag', 
+                                        [   'category' =>  $car->id . '-category', 
+                                            'slug' => $car->id . '-slug'
+                                            ]) }}" class="btn-card">More</a>  
                     </div>
                 </div>
             </div>

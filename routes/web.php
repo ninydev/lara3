@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('feeback','FeedBack@Form')->name('FeedBack');
+Route::post('feeback','FeedBack@Send')->name('FeedBack.Send');
+
 Route::get('beds','ControllerBed@index' )->name("beds");
 Route::get('beds/{id}','ControllerBed@show' );
 
